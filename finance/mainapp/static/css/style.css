@@ -1,2 +1,219 @@
 @import "bootstrap.css";
+body {
+  background: #333333;
+}
+.st0 {
+  fill: #4F6029;
+}
+.st1 {
+  fill: #BC0000;
+}
+.st2 {
+  fill: #F7A726;
+}
+.st3 {
+  fill: #FFFFFF;
+}
+.preloader {
+  height: 100vh;
+  background: #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+}
+.preloader_invisible {
+  opacity: 0;
+}
+.preloader__icon {
+  height: 200px;
+  animation: maggot_scale 3s ease-in-out infinite;
+}
+.maggot__fullhead {
+  transform-origin: 153px 39px;
+  animation: head_rotate 1.5s ease-in-out infinite;
+}
+.maggot__claw_up {
+  transform-origin: 175px 57px;
+  animation: upper_bite 3s linear infinite;
+}
+.maggot__claw_down {
+  animation: lower_bite 3s linear infinite;
+  transform-origin: 156px 59px;
+}
+@keyframes head_rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(0deg);
+  }
+  39% {
+    transform: rotate(-19deg);
+  }
+  40% {
+    transform: rotate(-20deg);
+  }
+  60% {
+    transform: rotate(-20deg);
+  }
+  89% {
+    transform: rotate(-1deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes upper_bite {
+  from {
+    transform: rotate(0deg);
+  }
+  2% {
+    transform: rotate(30deg);
+  }
+  4% {
+    transform: rotate(0deg);
+  }
+  6% {
+    transform: rotate(30deg);
+  }
+  8% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(30deg);
+  }
+  12% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  42% {
+    transform: rotate(30deg);
+  }
+  44% {
+    transform: rotate(0deg);
+  }
+  46% {
+    transform: rotate(30deg);
+  }
+  48% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  52% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes lower_bite {
+  from {
+    transform: rotate(0deg);
+  }
+  2% {
+    transform: rotate(-30deg);
+  }
+  4% {
+    transform: rotate(0deg);
+  }
+  6% {
+    transform: rotate(-30deg);
+  }
+  8% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  12% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(0deg);
+  }
+  42% {
+    transform: rotate(-30deg);
+  }
+  44% {
+    transform: rotate(0deg);
+  }
+  46% {
+    transform: rotate(-30deg);
+  }
+  48% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  52% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+@keyframes maggot_scale {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.auth {
+  background: #FFFFFF;
+  padding: 50px 70px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.auth_invisible {
+  opacity: 0;
+}
+.auth_none {
+  display: none;
+}
+.auth__background {
+  height: 100vh;
+  background: #333333;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.auth__title {
+  text-align: center;
+}
+.auth__input {
+  margin-bottom: 20px;
+}
+.auth__submit {
+  margin: 0 auto;
+  display: block;
+}
+.reason-field {
+  transition: all 0.3s;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #CCCCCC;
+  border-radius: 10px;
+  padding: 10px 10px 0 10px;
+}
+.reason-field_closed {
+  transform: translateY(-100px);
+}
 /*# sourceMappingURL=style.css.map */
