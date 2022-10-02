@@ -1,0 +1,12 @@
+.app {
+  height: 100vh;
+  background: #333333;
+}
+.block {
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+.block__wrapper {
+  padding: 10px;
+}
+/*# sourceMappingURL=App.css.map */
