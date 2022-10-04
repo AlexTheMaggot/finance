@@ -58,6 +58,20 @@ def index(request):
                 'result': 'success',
             }
             return JsonResponse(data)
+        elif request_data['method'] == 'ExpendsList':
+            expends = ExpenseModel.objects.all().order_by('-date')
+            data = {
+                'result': 'success',
+                'content': []
+            }
+            for expend in expends:
+                data['content'].append({
+                    'id': expend.id,
+                    'name': expend.name,
+                    'date': expend.date,
+                    'cost': expend.cost,
+                })
+            return JsonResponse(data)
         else:
             data = {
                 'result': 'error',
