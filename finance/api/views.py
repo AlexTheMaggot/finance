@@ -72,6 +72,20 @@ def index(request):
                     'cost': expend.cost,
                 })
             return JsonResponse(data)
+        elif request_data['method'] == 'IncomesList':
+            incomes = IncomeModel.objects.all().order_by('-date')
+            data = {
+                'result': 'success',
+                'content': []
+            }
+            for income in incomes:
+                data['content'].append({
+                    'id': income.id,
+                    'name': income.name,
+                    'date': income.date,
+                    'cost': income.cost,
+                })
+            return JsonResponse(data)
         else:
             data = {
                 'result': 'error',
