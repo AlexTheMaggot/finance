@@ -7,6 +7,7 @@ import Content from "./Content";
 import Aside from "./Aside";
 import ExpendsCreate from "./ExpendsCreate";
 import IncomesCreate from "./IncomesCreate";
+import ExpendsList from "./ExpendsList";
 
 
 export default class App extends Component {
@@ -37,6 +38,7 @@ export default class App extends Component {
                                     <Routes>
                                         <Route exact path='/' element={<Content />}></Route>
                                         <Route exact path='/expends/create/' element={<ExpendsCreate />}></Route>
+                                        <Route exact path='/expends/list/' element={<ExpendsList />}></Route>
                                         <Route exact path='/incomes/create/' element={<IncomesCreate />}></Route>
                                     </Routes>
                                 </div>
