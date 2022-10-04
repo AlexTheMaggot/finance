@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Navigate, redirect} from "react-router-dom";
 
 
-export default class Content extends Component {
+export default class ExpendsCreate extends Component {
     constructor(props) {
         super(props);
         let date = new Date();
