@@ -1,12 +1,12 @@
 # Django 4.0.4
 import os
 from pathlib import Path
-from .config import DJANGO_SECRET_KEY
+from .config import DJANGO_SECRET_KEY, DJANGO_ALLOWED_HOSTS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = DJANGO_SECRET_KEY
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = DJANGO_ALLOWED_HOSTS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,7 +64,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Samarkand'
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = '/static/'
