@@ -47,6 +47,17 @@ def index(request):
                 'result': 'success',
             }
             return JsonResponse(data)
+        elif request_data['method'] == 'IncomesCreate':
+            expend = IncomeModel(
+                name=request_data['content']['name'],
+                cost=request_data['content']['cost'],
+                date=request_data['content']['date'],
+            )
+            expend.save()
+            data = {
+                'result': 'success',
+            }
+            return JsonResponse(data)
         else:
             data = {
                 'result': 'error',
