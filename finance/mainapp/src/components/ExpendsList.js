@@ -24,24 +24,6 @@ export default class ExpendsList extends Component {
     }
 
     render () {
-        let data_1 = [
-            {
-                name: 123,
-                cost: 456,
-                data: 789,
-            },
-            {
-                name: 123,
-                cost: 456,
-                data: 789,
-            },
-            {
-                name: 123,
-                cost: 456,
-                data: 789,
-            },
-        ]
-        const data = this.state.data
         return (
             <div className="block">
                 <h3 className='mb-5'>Список расходов</h3>
