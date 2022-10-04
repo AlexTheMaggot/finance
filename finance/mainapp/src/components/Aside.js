@@ -17,6 +17,7 @@ export default class Aside extends Component {
                         <li><Link to={'/expends/create/'} className='nav__item btn btn-primary'>Новый расход</Link></li>
                         <li><Link to={'/incomes/create/'} className='nav__item btn btn-primary'>Новый доход</Link></li>
                         <li><Link to={'/expends/list/'} className='nav__item btn btn-primary'>Список расходов</Link></li>
+                        <li><Link to={'/incomes/list/'} className='nav__item btn btn-primary'>Список доходов</Link></li>
                     </ul>
                 </nav>
             </div>
