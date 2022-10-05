@@ -36,13 +36,34 @@ def index(request):
                     'reason': 'WrongPassword',
                 }
             return JsonResponse(data)
-        elif request_data['method'] == 'expensesCreate':
+        elif request_data['method'] == 'ExpensesCreate':
             expense = ExpenseModel(
                 name=request_data['content']['name'],
                 cost=request_data['content']['cost'],
                 date=request_data['content']['date'],
             )
             expense.save()
+            data = {
+                'result': 'success',
+            }
+            return JsonResponse(data)
+        elif request_data['method'] == 'ExpensesList':
+            expenses = ExpenseModel.objects.all().order_by('-date')
+            data = {
+                'result': 'success',
+                'content': []
+            }
+            for expense in expenses:
+                data['content'].append({
+                    'id': expense.id,
+                    'name': expense.name,
+                    'date': expense.date,
+                    'cost': expense.cost,
+                })
+            return JsonResponse(data)
+        elif request_data['method'] == 'ExpensesDelete':
+            expense = ExpenseModel.objects.get(id=request_data['content']['id'])
+            expense.delete()
             data = {
                 'result': 'success',
             }
@@ -58,20 +79,6 @@ def index(request):
                 'result': 'success',
             }
             return JsonResponse(data)
-        elif request_data['method'] == 'expensesList':
-            expenses = ExpenseModel.objects.all().order_by('-date')
-            data = {
-                'result': 'success',
-                'content': []
-            }
-            for expense in expenses:
-                data['content'].append({
-                    'id': expense.id,
-                    'name': expense.name,
-                    'date': expense.date,
-                    'cost': expense.cost,
-                })
-            return JsonResponse(data)
         elif request_data['method'] == 'IncomesList':
             incomes = IncomeModel.objects.all().order_by('-date')
             data = {
@@ -85,6 +92,13 @@ def index(request):
                     'date': income.date,
                     'cost': income.cost,
                 })
+            return JsonResponse(data)
+        elif request_data['method'] == 'IncomesDelete':
+            income = IncomeModel.objects.get(id=request_data['content']['id'])
+            income.delete()
+            data = {
+                'result': 'success',
+            }
             return JsonResponse(data)
         else:
             data = {
