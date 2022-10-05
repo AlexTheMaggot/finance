@@ -37,7 +37,7 @@ export default class ExpensesCreate extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                method: 'ExpendsCreate',
+                method: 'ExpensesCreate',
                 content: {
                     name: this.state.name,
                     cost: this.state.cost,
