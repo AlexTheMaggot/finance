@@ -12,6 +12,7 @@ export default class IncomesCreate extends Component {
             name: '',
             cost: '',
             date: date,
+            currency: 'UZS',
             submit: false,
         }
 
@@ -42,6 +43,7 @@ export default class IncomesCreate extends Component {
                     name: this.state.name,
                     cost: this.state.cost,
                     date: this.state.date,
+                    currency: this.state.currency
                 },
             }),
         }).then((data) => {return data.json()}).then((mydata) => {
@@ -60,6 +62,10 @@ export default class IncomesCreate extends Component {
                     <input required className='form-control mb-3' type="text" name='name' placeholder='Название' value={this.state.name} onChange={this.handleChange}/>
                     <input required className='form-control mb-3' type="number" name='cost' placeholder='Стоимость' value={this.state.cost} onChange={this.handleChange}/>
                     <input required type="date" name='date' className='form-control mb-3' value={this.state.date} onChange={this.handleChange}/>
+                    <select name="currency" className='form-select' onChange={this.handleChange}>
+                        <option value="UZS" selected>UZS</option>
+                        <option value="USD">USD</option>
+                    </select>
                     <input type="submit" className='btn btn-success' value='Создать'/>
                 </form>
             </div>

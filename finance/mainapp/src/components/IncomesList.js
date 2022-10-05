@@ -52,7 +52,7 @@ export default class IncomesList extends Component {
                         <th scope="col">Дата</th>
                         <th scope="col">Название</th>
                         <th scope="col">Цена</th>
-                        <th scope="col"></th>
+                        <th scope="col">Валюта</th>
                         <th scope="col"></th>
                     </tr>
                     </thead>
@@ -62,7 +62,7 @@ export default class IncomesList extends Component {
                                 <td>{item.date}</td>
                                 <td>{item.name}</td>
                                 <td>{item.cost}</td>
-                                <td></td>
+                                <td>{item.currency}</td>
                                 <td><button className='btn btn-danger' onClick={(e) => this.delete_income(item.id, e)}>Удалить</button></td>
                             </tr>
                         ))}
