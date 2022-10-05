@@ -22,6 +22,25 @@ export default class IncomesList extends Component {
             }
         });
     }
+    delete_income(id) {
+        fetch('/api/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                method: 'IncomesDelete',
+                content: {
+                    id: id,
+                },
+            }),
+        }).then(data => data.json()).then((mydata) => {
+            if (mydata.result ===  'success') {
+                this.componentDidMount()
+            }
+        });
+
+    }
 
     render () {
         return (
@@ -44,7 +63,7 @@ export default class IncomesList extends Component {
                                 <td>{item.name}</td>
                                 <td>{item.cost}</td>
                                 <td></td>
-                                <td></td>
+                                <td><button className='btn btn-danger' onClick={(e) => this.delete_income(item.id, e)}>Удалить</button></td>
                             </tr>
                         ))}
                     </tbody>
