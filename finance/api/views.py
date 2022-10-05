@@ -41,6 +41,7 @@ def index(request):
                 name=request_data['content']['name'],
                 cost=request_data['content']['cost'],
                 date=request_data['content']['date'],
+                currency=request_data['content']['currency'],
             )
             expense.save()
             data = {
@@ -59,6 +60,7 @@ def index(request):
                     'name': expense.name,
                     'date': expense.date,
                     'cost': expense.cost,
+                    'currency': expense.currency,
                 })
             return JsonResponse(data)
         elif request_data['method'] == 'ExpensesDelete':
@@ -73,6 +75,7 @@ def index(request):
                 name=request_data['content']['name'],
                 cost=request_data['content']['cost'],
                 date=request_data['content']['date'],
+                currency=request_data['content']['currency'],
             )
             expense.save()
             data = {
@@ -91,6 +94,7 @@ def index(request):
                     'name': income.name,
                     'date': income.date,
                     'cost': income.cost,
+                    'currency': income.currency,
                 })
             return JsonResponse(data)
         elif request_data['method'] == 'IncomesDelete':
