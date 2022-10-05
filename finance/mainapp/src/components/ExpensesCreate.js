@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Navigate} from "react-router-dom";
 
 
-export default class ExpendsCreate extends Component {
+export default class ExpensesCreate extends Component {
     constructor(props) {
         super(props);
         let date = new Date();

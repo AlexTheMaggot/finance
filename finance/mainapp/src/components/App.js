@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 import './App.css'
 import { createRoot } from 'react-dom/client';
-import {BrowserRouter, Route, Routes, Navigate, useHistory} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Header from "./Header";
 import Content from "./Content";
 import Aside from "./Aside";
-import ExpendsCreate from "./ExpendsCreate";
+import ExpensesCreate from "./ExpensesCreate";
 import IncomesCreate from "./IncomesCreate";
-import ExpendsList from "./ExpendsList";
+import ExpensesList from "./ExpensesList";
 import IncomesList from "./IncomesList";
 
 
@@ -38,8 +38,8 @@ export default class App extends Component {
                                 <div className="block__wrapper">
                                     <Routes>
                                         <Route exact path='/' element={<Content />}></Route>
-                                        <Route exact path='/expends/create/' element={<ExpendsCreate />}></Route>
-                                        <Route exact path='/expends/list/' element={<ExpendsList />}></Route>
+                                        <Route exact path='/expenses/create/' element={<ExpensesCreate />}></Route>
+                                        <Route exact path='/expenses/list/' element={<ExpensesList />}></Route>
                                         <Route exact path='/incomes/create/' element={<IncomesCreate />}></Route>
                                         <Route exact path='/incomes/list/' element={<IncomesList />}></Route>
                                     </Routes>

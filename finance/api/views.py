@@ -36,40 +36,40 @@ def index(request):
                     'reason': 'WrongPassword',
                 }
             return JsonResponse(data)
-        elif request_data['method'] == 'ExpendsCreate':
-            expend = ExpenseModel(
+        elif request_data['method'] == 'expensesCreate':
+            expense = ExpenseModel(
                 name=request_data['content']['name'],
                 cost=request_data['content']['cost'],
                 date=request_data['content']['date'],
             )
-            expend.save()
+            expense.save()
             data = {
                 'result': 'success',
             }
             return JsonResponse(data)
         elif request_data['method'] == 'IncomesCreate':
-            expend = IncomeModel(
+            expense = IncomeModel(
                 name=request_data['content']['name'],
                 cost=request_data['content']['cost'],
                 date=request_data['content']['date'],
             )
-            expend.save()
+            expense.save()
             data = {
                 'result': 'success',
             }
             return JsonResponse(data)
-        elif request_data['method'] == 'ExpendsList':
-            expends = ExpenseModel.objects.all().order_by('-date')
+        elif request_data['method'] == 'expensesList':
+            expenses = ExpenseModel.objects.all().order_by('-date')
             data = {
                 'result': 'success',
                 'content': []
             }
-            for expend in expends:
+            for expense in expenses:
                 data['content'].append({
-                    'id': expend.id,
-                    'name': expend.name,
-                    'date': expend.date,
-                    'cost': expend.cost,
+                    'id': expense.id,
+                    'name': expense.name,
+                    'date': expense.date,
+                    'cost': expense.cost,
                 })
             return JsonResponse(data)
         elif request_data['method'] == 'IncomesList':
