@@ -104,6 +104,33 @@ def index(request):
                 'result': 'success',
             }
             return JsonResponse(data)
+        elif request_data['method'] == 'GetTotalBalance':
+            incomes = IncomeModel.objects.all()
+            expenses = ExpenseModel.objects.all()
+            total_incomes_uzs = 0
+            total_incomes_usd = 0
+            total_expenses_uzs = 0
+            total_expenses_usd = 0
+            for item in incomes:
+                if item.currency == 'UZS':
+                    total_incomes_uzs += item.cost
+                else:
+                    total_incomes_usd += item.cost
+            for item in expenses:
+                if item.currency == 'UZS':
+                    total_expenses_uzs += item.cost
+                else:
+                    total_expenses_usd += item.cost
+            total_balance_uzs = total_incomes_uzs - total_expenses_uzs
+            total_balance_usd = total_incomes_usd - total_expenses_usd
+            data = {
+                'result': 'success',
+                'content': {
+                    'total_balance_uzs': total_balance_uzs,
+                    'total_balance_usd': total_balance_usd,
+                }
+            }
+            return JsonResponse(data)
         else:
             data = {
                 'result': 'error',
