@@ -43,13 +43,13 @@ export default class Content extends Component {
         return (
             <div className="block">
                 <h3>Баланс</h3>
-                <h3>{this.state.data.total_balance_uzs.toLocaleString('ru')} UZS</h3>
-                <h3>{this.state.data.total_balance_usd.toLocaleString('ru')} $</h3>
+                <h3>{this.state.data.total_balance_uzs} UZS</h3>
+                <h3>{this.state.data.total_balance_usd} $</h3>
                 <br/>
                 <h3>Баланс за последние 10 дней</h3>
                 <ul>
                     {this.state.balances_got && this.state.balances.map(item => (
-                            <li><h3>{item.date}: {item.UZS.toLocaleString('ru')} UZS, {item.USD.toLocaleString('ru')}$</h3></li>
+                            <li><h3>{item.date}: {item.UZS} UZS, {item.USD}$</h3></li>
                     ))}
                 </ul>
             </div>
