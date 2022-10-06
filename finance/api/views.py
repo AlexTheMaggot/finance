@@ -1,4 +1,5 @@
 import json
+from datetime import date, timedelta
 from django.http import HttpResponseForbidden, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
@@ -130,6 +131,39 @@ def index(request):
                     'total_balance_usd': total_balance_usd,
                 }
             }
+            return JsonResponse(data)
+        elif request_data['method'] == 'GetTenDaysBalace':
+            today = date.today()
+            data = {
+                'result': 'success',
+                'content': [],
+            }
+            for i in range(10):
+                by_day = today - timedelta(days=i)
+                expenses = ExpenseModel.objects.filter(date__lte=today)
+                incomes = IncomeModel.objects.filter(date__lte=today)
+                total_incomes_uzs = 0
+                total_incomes_usd = 0
+                total_expenses_uzs = 0
+                total_expenses_usd = 0
+                for item in incomes:
+                    if item.currency == 'UZS':
+                        total_incomes_uzs += item.cost
+                    else:
+                        total_incomes_usd += item.cost
+                for item in expenses:
+                    if item.currency == 'UZS':
+                        total_expenses_uzs += item.cost
+                    else:
+                        total_expenses_usd += item.cost
+                total_balance_uzs = total_incomes_uzs - total_expenses_uzs
+                total_balance_usd = total_incomes_usd - total_expenses_usd
+                response = {
+                    'date': by_day.strftime('%Y-%m-%d'),
+                    'USD': total_balance_usd,
+                    'UZS': total_balance_uzs,
+                }
+                data['content'].append(response)
             return JsonResponse(data)
         else:
             data = {
