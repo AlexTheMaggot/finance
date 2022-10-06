@@ -1,11 +1,11 @@
 # Django 4.0.4
 import os
 from pathlib import Path
-from .config import DJANGO_SECRET_KEY, DJANGO_ALLOWED_HOSTS
+from .config import DJANGO_SECRET_KEY, DJANGO_ALLOWED_HOSTS, DJANGO_DEBUG
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = DJANGO_SECRET_KEY
-DEBUG = True
+DEBUG = DJANGO_DEBUG
 ALLOWED_HOSTS = DJANGO_ALLOWED_HOSTS
 INSTALLED_APPS = [
     'django.contrib.admin',
