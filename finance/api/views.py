@@ -140,8 +140,8 @@ def index(request):
             }
             for i in range(10):
                 by_day = today - timedelta(days=i)
-                expenses = ExpenseModel.objects.filter(date__lte=today)
-                incomes = IncomeModel.objects.filter(date__lte=today)
+                expenses = ExpenseModel.objects.filter(date__lte=by_day)
+                incomes = IncomeModel.objects.filter(date__lte=by_day)
                 total_incomes_uzs = 0
                 total_incomes_usd = 0
                 total_expenses_uzs = 0
@@ -164,6 +164,7 @@ def index(request):
                     'UZS': total_balance_uzs,
                 }
                 data['content'].append(response)
+            print(data)
             return JsonResponse(data)
         else:
             data = {
