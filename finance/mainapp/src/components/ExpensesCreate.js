@@ -55,19 +55,23 @@ export default class ExpensesCreate extends Component {
     render() {
         let submit = this.state.submit;
         return (
-            <div className="block">
-                {submit && <Navigate to='/' replace={true} />}
-                <h3 className='mb-5'>Новый расход</h3>
-                <form action="#" className='w-50' onSubmit={this.handleSubmit}>
-                    <input required className='form-control mb-3' type="text" name='name' placeholder='Название' value={this.state.name} onChange={this.handleChange}/>
-                    <input required className='form-control mb-3' type="number" name='cost' placeholder='Стоимость' value={this.state.cost} onChange={this.handleChange}/>
-                    <input required type="date" name='date' className='form-control mb-3' value={this.state.date} onChange={this.handleChange}/>
-                    <select name="currency" className='form-select' onChange={this.handleChange} defaultValue='UZS'>
-                        <option value="UZS">UZS</option>
-                        <option value="USD">USD</option>
-                    </select>
-                    <input type="submit" className='btn btn-success' value='Создать'/>
-                </form>
+            <div className="row content">
+                <div className="block__wrapper">
+                    <div className="block">
+                        {submit && <Navigate to='/' replace={true} />}
+                        <h3 className='mb-5'>Новый расход</h3>
+                        <form action="#" className='w-50' onSubmit={this.handleSubmit}>
+                            <input required className='form-control mb-3' type="text" name='name' placeholder='Название' value={this.state.name} onChange={this.handleChange}/>
+                            <input required className='form-control mb-3' type="number" name='cost' placeholder='Стоимость' value={this.state.cost} onChange={this.handleChange}/>
+                            <input required type="date" name='date' className='form-control mb-3' value={this.state.date} onChange={this.handleChange}/>
+                            <select name="currency" className='form-select' onChange={this.handleChange} defaultValue='UZS'>
+                                <option value="UZS">UZS</option>
+                                <option value="USD">USD</option>
+                            </select>
+                            <input type="submit" className='btn btn-success' value='Создать'/>
+                        </form>
+                    </div>
+                </div>
             </div>
         );
     }

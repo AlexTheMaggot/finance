@@ -8,9 +8,11 @@ export default class Header extends Component {
 
     render() {
         return (
-            <div className="block">
-                <h3>Dashboard</h3>
-                <a href='/logout/' className='btn btn-danger'>Выход</a>
+            <div className="block__wrapper">
+                <div className="block">
+                    <h3>Dashboard</h3>
+                    <a href='/logout/' className='btn btn-danger'>Выход</a>
+                </div>
             </div>
         );
     }

@@ -44,30 +44,34 @@ export default class IncomesList extends Component {
 
     render () {
         return (
-            <div className="block">
-                <h3 className='mb-5'>Список доходов</h3>
-                <table className="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Дата</th>
-                        <th scope="col">Название</th>
-                        <th scope="col">Цена</th>
-                        <th scope="col">Валюта</th>
-                        <th scope="col"></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.data.map(item => (
-                            <tr key={item.id}>
-                                <td>{item.date}</td>
-                                <td>{item.name}</td>
-                                <td>{item.cost}</td>
-                                <td>{item.currency}</td>
-                                <td><button className='btn btn-danger' onClick={(e) => this.delete_income(item.id, e)}>Удалить</button></td>
+            <div className="row content">
+                <div className="block__wrapper">
+                    <div className="block">
+                        <h3 className='mb-5'>Список доходов</h3>
+                        <table className="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Дата</th>
+                                <th scope="col">Название</th>
+                                <th scope="col">Цена</th>
+                                <th scope="col">Валюта</th>
+                                <th scope="col"></th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                                {this.state.data.map(item => (
+                                    <tr key={item.id}>
+                                        <td>{item.date}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.cost}</td>
+                                        <td>{item.currency}</td>
+                                        <td><button className='btn btn-danger' onClick={(e) => this.delete_income(item.id, e)}>Удалить</button></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         )
     }

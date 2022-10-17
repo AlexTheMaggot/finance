@@ -164,7 +164,6 @@ def index(request):
                     'UZS': total_balance_uzs,
                 }
                 data['content'].append(response)
-            print(data)
             return JsonResponse(data)
         else:
             data = {
