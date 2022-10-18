@@ -139,7 +139,7 @@ def index(request):
                 'content': [],
             }
             for i in range(10):
-                by_day = today - timedelta(days=i)
+                by_day = today - timedelta(days=9 - i)
                 expenses = ExpenseModel.objects.filter(date__lte=by_day)
                 incomes = IncomeModel.objects.filter(date__lte=by_day)
                 total_incomes_uzs = 0

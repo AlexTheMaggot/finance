@@ -38,51 +38,66 @@ export default class Content extends Component {
             if (mydata.result ===  'success') {
                 this.setState({balances: mydata.content});
                 this.setState({balances_got: true});
-                this.show_chart();
+                if (this.state.balances_got) {
+                    this.show_chart();
+                }
             }
         });
     }
     show_chart() {
+        let chart_data = {
+            labels: [],
+            UZS: [],
+            USD: [],
+        }
+        this.state.balances.map((item) => {
+            chart_data.labels.push(item.date);
+            chart_data.UZS.push(item.UZS);
+            chart_data.USD.push(item.USD);
+        });
         const ctx = document.getElementById('myChart');
-        let myChart = new Chart(ctx, {
-            type: 'bar',
+        const myChart = new Chart(ctx, {
+            type: 'line',
             data: {
-                labels: [],
+                labels: chart_data.labels,
                 datasets: [{
-                    label: '# of Votes',
-                    data: [],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
+                    fill: false,
+                    cubicInterpolationMode: 'monotone',
+                    tension: 0.4,
+                    label: 'UZS',
+                    data: chart_data.UZS,
+                    borderColor: '#198754',
+                    yAxisID: 'y',
+                },
+                {
+                    fill: false,
+                    cubicInterpolationMode: 'monotone',
+                    tension: 0.4,
+                    label: 'USD',
+                    data: chart_data.USD,
+                    borderColor: '#0D6EFD',
+                    yAxisID: 'y',
                 }]
             },
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        position: 'left',
+                        ticks: {
+                            color: '#198754',
+                        },
+                    },
+                    y2: {
+                        beginAtZero: true,
+                        position: 'right',
+                        ticks: {
+                            color: '#0D6EFD',
+                        },
                     }
                 }
             }
         });
-        console.log(this.state);
-        // this.state.balances.map((item) => {
-        //     myChart.data.labels.join(item.date);
-        //     myChart.data.data.join(item.UZS);
-        // });
     }
     render() {
         return (
@@ -103,12 +118,8 @@ export default class Content extends Component {
                         <div className="block__wrapper">
                             <div className="block">
                                 <h3>Баланс за последние 10 дней</h3>
-                                <ul>
-                                    {this.state.balances_got && this.state.balances.map(item => (
-                                            <li><h3>{item.date}: {item.UZS} UZS, {item.USD}$</h3></li>
-                                    ))}
-                                </ul>
                                 <canvas id="myChart" width="400" height="400"></canvas>
+                                {this.state.balances_got && this.show_chart()}
                             </div>
                         </div>
                     </div>
