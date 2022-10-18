@@ -76,7 +76,7 @@ export default class Content extends Component {
                     label: 'USD',
                     data: chart_data.USD,
                     borderColor: '#0D6EFD',
-                    yAxisID: 'y',
+                    yAxisID: 'y2',
                 }]
             },
             options: {
