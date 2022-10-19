@@ -6,7 +6,7 @@ Chart.register(...registerables);
 export default class BalanceChart extends Component {
     constructor(props) {
         super(props);
-        this.update_func = this.update_chart.bind(this);
+        this.update_chart = this.update_chart.bind(this);
         this.state = {
             balances: '',
             chart: '',
@@ -30,8 +30,7 @@ export default class BalanceChart extends Component {
             }),
         }).then(data => data.json()).then((mydata) => {
             if (mydata.result ===  'success') {
-                this.setState({balances: mydata.content});
-                setTimeout(() => {
+                this.setState({balances: mydata.content}, () => {
                     this.show_chart();
                 });
             }
