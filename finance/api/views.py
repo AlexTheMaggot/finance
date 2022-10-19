@@ -132,14 +132,15 @@ def index(request):
                 }
             }
             return JsonResponse(data)
-        elif request_data['method'] == 'GetTenDaysBalace':
+        elif request_data['method'] == 'GetBalanceList':
+            days = int(request_data['content']['days'])
             today = date.today()
             data = {
                 'result': 'success',
                 'content': [],
             }
-            for i in range(10):
-                by_day = today - timedelta(days=9 - i)
+            for i in range(days):
+                by_day = today - timedelta(days=(days - 1) - i)
                 expenses = ExpenseModel.objects.filter(date__lte=by_day)
                 incomes = IncomeModel.objects.filter(date__lte=by_day)
                 total_incomes_uzs = 0
