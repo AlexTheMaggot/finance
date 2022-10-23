@@ -134,10 +134,11 @@ export default class BalanceChart extends Component {
             <div className="row">
                 <div className="block__wrapper">
                     <div className="block">
-                        <h3>Баланс за последние 10 дней</h3>
+                        <h3>Баланс за последнее время</h3>
                         <canvas id="myChart" className='balance-chart' width="400" height="400"></canvas>
-                        <button className='btn btn-dark' onClick={() => this.update_chart(30)} >30</button>
-                        <button className='btn btn-dark' onClick={() => this.update_chart(10)} >10</button>
+                        <button className='btn btn-dark' onClick={() => this.update_chart(10)} >10 дней</button>
+                        <button className='btn btn-dark' onClick={() => this.update_chart(30)} >30 дней</button>
+                        <button className='btn btn-dark' onClick={() => this.update_chart(90)} >90 дней</button>
                     </div>
                 </div>
             </div>
