@@ -9,7 +9,7 @@ $(window).on('load', function () {
     }, 2500);
 })
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
+    navigator.serviceWorker.register('/sw.js')
       .then(() => navigator.serviceWorker.ready.then((worker) => {
         worker.sync.register('syncdata');
       }))
