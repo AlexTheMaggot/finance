@@ -4,7 +4,11 @@ const timeout = 300;
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE).then((cache) => cache.addAll([
-                '/static'
+                '/static/js/jquery.js',
+                '/static/js/main.js',
+                '/static/js/script.js',
+                '/static/css/bootstrap.css',
+                '/static/css/style.css',
             ])
         ));
 });
