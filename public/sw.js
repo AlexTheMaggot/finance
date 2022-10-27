@@ -1,3 +1,11 @@
-self.addEventListener('install', (event) => {});
-self.addEventListener('activate', (event) => {});
-self.addEventListener('fetch', (event) => {});
+self.addEventListener('install', (event) => {
+    console.log('Установлен');
+});
+
+self.addEventListener('activate', (event) => {
+    console.log('Активирован');
+});
+
+self.addEventListener('fetch', (event) => {
+    console.log('Происходит запрос на сервер');
+});
