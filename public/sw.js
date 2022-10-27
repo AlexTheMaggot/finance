@@ -4,7 +4,7 @@ const timeout = 300;
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE).then((cache) => cache.addAll([
-                '/img/background'
+                '/static'
             ])
         ));
 });
