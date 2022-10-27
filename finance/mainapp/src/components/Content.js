@@ -29,7 +29,7 @@ export default class Content extends Component {
     render() {
         return (
             <div className="row content">
-                <div className="col-lg-6 col-12">
+                <div className="col-lg-7 col-12">
                     <div className="row">
                         <div className="block__wrapper">
                             <div className="block">
@@ -40,7 +40,7 @@ export default class Content extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-6 col-12">
+                <div className="col-lg-5 col-12">
                     <BalanceChart />
                 </div>
             </div>
