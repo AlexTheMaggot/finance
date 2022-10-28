@@ -7,36 +7,49 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth import authenticate, login
 from .models import *
 
+errors = {
+    1000: 'WrongAuth',
+    1001: 'WrongUser',
+    1002: 'WrongPassword',
+    2000: 'WrongMethod',
+}
+
+
+def make_error(code: int):
+    data = {
+        'result': 'error',
+        'reason': errors[code],
+    }
+    return JsonResponse(data)
+
+
+def method_login(request, username, password):
+    try:
+        User.objects.get(username=username)
+    except ObjectDoesNotExist:
+        return make_error(1001)
+    user = authenticate(
+        request,
+        username=username,
+        password=password
+    )
+    if user is None:
+        return make_error(1002)
+    else:
+        login(request, user)
+        data = {
+            'result': 'success',
+        }
+        return JsonResponse(data)
+
 
 @csrf_exempt
 def index(request):
     if request.method == 'POST':
         request_data = json.loads(request.body)
         if request_data['method'] == 'Login':
-            try:
-                User.objects.get(username=request_data['content']['username'])
-            except ObjectDoesNotExist:
-                data = {
-                    'result': 'error',
-                    'reason': 'WrongUser',
-                }
-                return JsonResponse(data)
-            user = authenticate(
-                request,
-                username=request_data['content']['username'],
-                password=request_data['content']['password']
-            )
-            if user is not None:
-                login(request, user)
-                data = {
-                    'result': 'success',
-                }
-            else:
-                data = {
-                    'result': 'error',
-                    'reason': 'WrongPassword',
-                }
-            return JsonResponse(data)
+            return method_login(request, request_data['content']['username'],
+                                request_data['content']['password'])
         elif request_data['method'] == 'ExpensesCreate':
             expense = ExpenseModel(
                 name=request_data['content']['name'],
@@ -131,7 +144,10 @@ def index(request):
                     'total_balance_usd': total_balance_usd,
                 }
             }
-            return JsonResponse(data)
+            if request.user.is_authenticated:
+                return JsonResponse(data)
+            else:
+                return JsonResponse({'result': 'error'})
         elif request_data['method'] == 'GetBalanceList':
             days = int(request_data['content']['days'])
             today = date.today()
