@@ -23,6 +23,15 @@ def make_error(code: int):
     return JsonResponse(data)
 
 
+def make_success(content=False):
+    data = {
+        'result': 'success',
+    }
+    if content:
+        data['content'] = content
+    return JsonResponse(data)
+
+
 def method_login(request, username, password):
     try:
         User.objects.get(username=username)
@@ -37,10 +46,7 @@ def method_login(request, username, password):
         return make_error(1002)
     else:
         login(request, user)
-        data = {
-            'result': 'success',
-        }
-        return JsonResponse(data)
+        return make_success()
 
 
 @csrf_exempt
