@@ -34,8 +34,8 @@ export default class Content extends Component {
                         <div className="block__wrapper">
                             <div className="block">
                                 <h3>Баланс</h3>
-                                <h3>{this.state.data.total_balance_uzs} UZS</h3>
-                                <h3>{this.state.data.total_balance_usd} $</h3>
+                                <h3>{this.state.data.UZS} UZS</h3>
+                                <h3>{this.state.data.USD} $</h3>
                             </div>
                         </div>
                     </div>
