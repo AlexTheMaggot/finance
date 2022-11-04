@@ -1,0 +1,63 @@
+@import "../../../mainapp/static/css/colors";
+
+.app {
+  height: 100vh;
+  background: @gray-dark;
+}
+
+.block {
+  background: @white;
+  border-radius: 10px;
+  padding: 10px;
+  &__wrapper {
+    padding: 10px;
+  }
+}
+
+.nav {
+  list-style-type: none;
+  padding: 0;
+  &__item {
+    margin-bottom: 10px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.balance-chart {
+  transition: all 0.3s;
+}
+
+.bottom-nav {
+  padding: 5px 0 0 0;
+  font-size: 0.7rem;
+  width: 100%;
+  background: @gray-dark;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid @gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  &__button {
+    padding: 0 10px;
+    transition: all 0.3s;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  &__img {
+    height: 30px;
+  }
+  &__figure {
+    fill: @gray;
+  }
+  &__text {
+    font-weight: bold;
+    text-align: center;
+    margin: 5px 0 0 0;
+    color: @gray;
+  }
+}

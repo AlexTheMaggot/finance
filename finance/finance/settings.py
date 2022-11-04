@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api.apps.ApiConfig',
     'mainapp.apps.MainappConfig',
+    'mobile.apps.MobileConfig',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

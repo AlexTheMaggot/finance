@@ -10,7 +10,7 @@ export default class Header extends Component {
         return (
             <div className="block__wrapper">
                 <div className="block">
-                    <h3>Desktop Dashboard</h3>
+                    <h3>Mobile Dashboard</h3>
                     <a href='/logout/' className='btn btn-danger'>Выход</a>
                 </div>
             </div>
