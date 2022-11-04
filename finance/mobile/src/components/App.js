@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import './App.css';
 import { createRoot } from 'react-dom/client';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import Header from "./Header";
 import Content from "./Content";
 import Aside from "./Aside";
@@ -96,7 +96,7 @@ export default class App extends Component {
                             </svg>
                             <p className="bottom-nav__text">123</p>
                         </div>
-                        <div className="bottom-nav__button">
+                        <Link to="/" className="bottom-nav__button">
                             <svg className="bottom-nav__img" viewBox="0 0 1000 1000">
                                 <path className="bottom-nav__figure" d="M996.68,594.12c-39.69-24.5-79.25-49.21-118.93-73.72c-3.14-1.94-4.57-3.93-4.18-7.66
                                     c0.87-8.46,0.87-16.96,0-25.41c-0.38-3.71,1-5.74,4.15-7.69c39.84-24.59,79.54-49.38,119.39-73.96c3.32-2.05,3.7-3.66,2.24-7.15
@@ -122,8 +122,8 @@ export default class App extends Component {
                                     C1001.02,597.58,999.96,596.15,996.68,594.12z M500,685.1c-102.33,0.01-185.18-82.91-185.09-185.23
                                     c0.09-102.35,83-185.07,185.38-184.94c102.15,0.13,184.77,82.83,184.79,184.97C685.1,602.32,602.39,685.09,500,685.1z"/>
                             </svg>
-                            <p className="bottom-nav__text">123</p>
-                        </div>
+                            <p className="bottom-nav__text">Главная</p>
+                        </Link>
                         <div className="bottom-nav__button">
                             <svg className="bottom-nav__img" viewBox="0 0 1000 1000">
                                 <path className="bottom-nav__figure" d="M996.68,594.12c-39.69-24.5-79.25-49.21-118.93-73.72c-3.14-1.94-4.57-3.93-4.18-7.66
@@ -191,3 +191,6 @@ export default class App extends Component {
 const container = document.getElementById('app');
 const root = createRoot(container);
 root.render(<App />);
+
+
+// TODO: Fix blocks arcitecture

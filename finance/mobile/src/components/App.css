@@ -38,6 +38,11 @@
 }
 .bottom-nav__button {
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-decoration: none;
   transition: all 0.3s;
 }
 .bottom-nav__button:active {
