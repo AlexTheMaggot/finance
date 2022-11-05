@@ -5,10 +5,10 @@
 .block {
   background: #FFFFFF;
   border-radius: 10px;
-  padding: 10px;
+  padding: 3px;
 }
 .block__wrapper {
-  padding: 10px;
+  padding: 3px;
 }
 .nav {
   list-style-type: none;

@@ -58,7 +58,7 @@ export default class BalanceChart extends Component {
                     tension: 0.4,
                     label: 'UZS',
                     data: chart_data.UZS,
-                    borderColor: '#198754',
+                    borderColor: '#0D2F7E',
                     yAxisID: 'y',
                 },
                 {
@@ -67,7 +67,7 @@ export default class BalanceChart extends Component {
                     tension: 0.4,
                     label: 'USD',
                     data: chart_data.USD,
-                    borderColor: '#0D6EFD',
+                    borderColor: '#4F6029',
                     yAxisID: 'y2',
                 }]
             },
@@ -77,14 +77,14 @@ export default class BalanceChart extends Component {
                         beginAtZero: true,
                         position: 'left',
                         ticks: {
-                            color: '#198754',
+                            color: '#0D2F7E',
                         },
                     },
                     y2: {
                         beginAtZero: true,
                         position: 'right',
                         ticks: {
-                            color: '#0D6EFD',
+                            color: '#4F6029',
                         },
                     }
                 }

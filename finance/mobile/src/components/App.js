@@ -3,7 +3,7 @@ import './App.css';
 import { createRoot } from 'react-dom/client';
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import Header from "./Header";
-import Content from "./Content";
+import Dashboard from "./Dashboard";
 import Aside from "./Aside";
 import ExpensesCreate from "./ExpensesCreate";
 import IncomesCreate from "./IncomesCreate";
@@ -20,18 +20,10 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <div className="container-fluid app">
-                    <div className="row header">
-                        <Header />
-                    </div>
                     <div className="row">
-                        <div className="col-12 col-lg-3">
-                            <div className="row aside">
-                                <Aside />
-                            </div>
-                        </div>
                         <div className="col-12 col-lg-9">
                             <Routes>
-                                <Route exact path='/' element={<Content />}></Route>
+                                <Route exact path='/' element={<Dashboard />}></Route>
                                 <Route exact path='/expenses/create/' element={<ExpensesCreate />}></Route>
                                 <Route exact path='/expenses/list/' element={<ExpensesList />}></Route>
                                 <Route exact path='/incomes/create/' element={<IncomesCreate />}></Route>
