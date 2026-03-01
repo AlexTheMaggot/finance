@@ -1,0 +1,17 @@
+.chart {
+  padding-bottom: 70px;
+}
+.chart__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chart__buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/*# sourceMappingURL=BalanceChart.css.map */

@@ -25,7 +25,7 @@
 }
 .bottom-nav {
   padding: 5px 0 0 0;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   width: 100%;
   background: #333333;
   position: fixed;
@@ -37,7 +37,9 @@
   justify-content: space-around;
 }
 .bottom-nav__button {
-  padding: 0 10px;
+  flex: 0 0  auto;
+  width: 20%;
+  padding: 0 1px;
   display: flex;
   flex-direction: column;
   justify-content: center;

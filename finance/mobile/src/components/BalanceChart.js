@@ -1,4 +1,5 @@
 import React, {Component, useState} from "react";
+import './BalanceChart.css';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
@@ -131,14 +132,18 @@ export default class BalanceChart extends Component {
     }
     render() {
         return (
-            <div className="row">
+            <div className="row chart">
                 <div className="block__wrapper">
                     <div className="block">
                         <h3>Баланс за последнее время</h3>
-                        <canvas id="myChart" className='balance-chart' width="400" height="400"></canvas>
-                        <button className='btn btn-dark' onClick={() => this.update_chart(10)} >10 дней</button>
-                        <button className='btn btn-dark' onClick={() => this.update_chart(30)} >30 дней</button>
-                        <button className='btn btn-dark' onClick={() => this.update_chart(90)} >90 дней</button>
+                        <div className="chart__wrapper">
+                            <canvas id="myChart" className='balance-chart' width="400" height="400"></canvas>
+                            <div className="chart__buttons">
+                                <button className='btn btn-dark btn-sm' onClick={() => this.update_chart(10)} >10 дней</button>
+                                <button className='btn btn-dark btn-sm' onClick={() => this.update_chart(30)} >30 дней</button>
+                                <button className='btn btn-dark btn-sm' onClick={() => this.update_chart(90)} >90 дней</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
